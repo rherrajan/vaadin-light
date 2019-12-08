@@ -14,7 +14,9 @@ import org.eclipse.jetty.servlet.ServletHolder;
 public class App {
 
     public static void main(String[] args) {
-        Server server = new Server(8080);
+    	String serverPort = System.getProperty("server.port");
+    	System.out.println(" --- serverPort: " + serverPort);
+        Server server = new Server(Integer.parseInt(serverPort));
 
         ServletContextHandler contextHandler
                 = new ServletContextHandler(ServletContextHandler.SESSIONS);
